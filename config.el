@@ -55,3 +55,75 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
+(use-package! magit
+  :init
+  (map! "C-x g" #'magit-status
+        "s-g" #'magit-status
+        "s-G" #'magit-blame-addition
+        "C-x M-g" #'magit-blame-addition))
+
+;; Crux
+(use-package! crux
+  :init
+  (map!
+   "s-b" #'+ivy/switch-workspace-buffer
+   "s-B" #'crux-switch-to-previous-buffer
+   "s-d" #'crux-duplicate-current-line-or-region
+   "s-D" #'crux-duplicate-and-comment-current-line-or-region
+   "C-c o" #'crux-open-with
+   "C-c D" #'crux-delete-file-and-buffer
+   "C-c R" #'crux-rename-file-and-buffer
+   ))
+;; "C-<backspace>" #'crux-kill-line-backwards))
+
+
+(use-package! multiple-cursors
+  :init
+  (map!
+   "C->" #'mc/mark-next-like-this
+   "C-<" #'mc/mark-previous-like-this
+   ;; No need to select, will be function/chunk-specific.
+   "C-c a" #'mc/mark-all-like-this-dwim
+   ;; Needs selection, will be buffer-global.
+   "C-c A" #'mc/mark-all-like-this)
+  (map! :map mc/keymap
+        ;; Make <return> insert a newline instead of disabling multiple-cursors-mode
+        "<return>" #'newline-and-indent))
+
+;; Copy lines
+(defun copy-line (arg)
+  "Copy lines (as many as prefix argument) in the kill ring.
+      Ease of use features:
+      - Move to start of next line.
+      - Appends the copy on sequential calls.
+      - Use newline as last char even on the last line of the buffer.
+      - If region is active, copy its lines."
+  (interactive "p")
+  (let ((beg (line-beginning-position))
+        (end (line-end-position arg)))
+    (when mark-active
+      (if (> (point) (mark))
+          (setq beg (save-excursion (goto-char (mark)) (line-beginning-position)))
+        (setq end (save-excursion (goto-char (mark)) (line-end-position)))))
+    (if (eq last-command 'copy-line)
+        (kill-append (buffer-substring beg end) (< end beg))
+      (kill-ring-save beg end)))
+  (kill-append "\n" nil)
+  (beginning-of-line (or (and arg (1+ arg)) 2))
+  (if (and arg (not (= 1 arg))) (message "%d lines copied" arg)))
+
+;; Override major modes
+(map! "M-l" #'copy-line
+      "M-q" #'other-window
+      "s-x" #'kill-region
+      "s-/" #'comment-or-uncomment-region
+      ;; Ideally this works
+      "M-s-/" 'comment-line
+      ;; but this Mac makes opt-/ into a ÷ symbol so...
+      "M-s-÷" 'comment-line
+      "s-z" 'undo
+      "s-<backspace>" 'sp-kill-whole-line
+      "C-<backspace>" #'doom/backward-kill-to-bol-and-indent
+      "C-c j" 'counsel-projectile-git-grep
+      )
