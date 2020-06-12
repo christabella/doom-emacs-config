@@ -141,8 +141,14 @@
       "s-<backspace>" #'sp-kill-whole-line
       "C-<backspace>" #'doom/backward-kill-to-bol-and-indent
       "C-S-<backspace>" #'fixup-whitespace
-      "C-c j" #'counsel-projectile-git-grep
-      "s-p" #'counsel-projectile-git-grep
-      "s-P" #'counsel-projectile-switch-project
-      "s-F" #'counsel-projectile-find-file
+      "C-c j" #'+default/search-project ;; TODO deprecate
+      "s-p" #'+default/search-project
+      "s-P" #'+default/search-other-project
+      "s-F" #'+default/browse-project
+      "C-c p d" #'+default/discover-projects  ;; Add ~/Repos/* to known projects.
       )
+
+(after! projectile
+  (setq projectile-project-search-path '("~/Repos/"))
+  (add-to-list 'projectile-globally-ignored-directories "env")
+  (add-to-list 'projectile-globally-ignored-directories ".venv"))
