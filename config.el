@@ -57,7 +57,8 @@
 ;; they are implemented.
 
 (use-package! magit
-  :init
+  :defer t
+  :config
   (map! "C-x g" #'magit-status
         "s-g" #'magit-status
         "s-G" #'magit-blame-addition
@@ -65,7 +66,8 @@
 
 ;; Crux
 (use-package! crux
-  :init
+  :defer t
+  :config
   (map!
    "s-b" #'+ivy/switch-workspace-buffer
    "s-B" #'crux-switch-to-previous-buffer
@@ -79,7 +81,8 @@
 
 
 (use-package! multiple-cursors
-  :init
+  :defer t
+  :config
   (map!
    "C->" #'mc/mark-next-like-this
    "C-<" #'mc/mark-previous-like-this
