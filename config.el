@@ -144,10 +144,10 @@
       "s-p" #'+default/search-project
       "s-P" #'+default/search-other-project
       "s-F" #'+default/browse-project
-      "C-c p d" #'+default/discover-projects  ;; Add ~/Repos/* to known projects.
+      "C-c p d" #'+default/discover-projects  ;; Add ~/repos/* to known projects.
       )
 
 (after! projectile
-  (setq projectile-project-search-path '("~/Repos/"))
+  (setq projectile-project-search-path '("~/repos/"))
   (add-to-list 'projectile-globally-ignored-directories "env")
   (add-to-list 'projectile-globally-ignored-directories ".venv"))
