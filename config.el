@@ -132,7 +132,6 @@
       "M-q" #'other-window
       ;; Basic commands, not taken care of by `macos' in init.el...
       "s-x" #'kill-region
-      "s-z" #'undo  ;; Good ol' Emacs fully-featured undo
       "s-/" #'comment-or-uncomment-region
       "s-t" #'doom/switch-to-scratch-buffer
       "M-s-/" #'comment-line
