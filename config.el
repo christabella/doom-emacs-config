@@ -34,8 +34,13 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/org/")
-
+(setq org-directory "~/org/"
+      org-journal-file-format "%Y-%m-%d.org"
+      org-journal-date-prefix "* "  ;; No title, print heading straightaway.
+      ;; Heading example: `Friday, 12 June 2020'
+      org-journal-date-format "%A, %d %B %Y"
+      org-ellipsis " ▼ "
+      )
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
@@ -93,6 +98,12 @@
   (map! :map mc/keymap
         ;; Make <return> insert a newline instead of disabling multiple-cursors-mode
         "<return>" #'newline-and-indent))
+
+(use-package! org-journal
+  :config
+  (map!
+   "s-j" #'org-journal-new-entry
+   "s-J" #'org-journal-open-current-journal-file))
 
 ;; Copy lines
 (defun copy-line (arg)
