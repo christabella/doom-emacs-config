@@ -66,7 +66,6 @@
 
 ;; Crux
 (use-package! crux
-  :defer t
   :config
   (map!
    "s-b" #'+ivy/switch-workspace-buffer
@@ -81,7 +80,6 @@
 
 
 (use-package! multiple-cursors
-  :defer t
   :config
   (map!
    "C->" #'mc/mark-next-like-this
@@ -123,6 +121,7 @@
       "s-x" #'kill-region
       "s-z" #'undo  ;; Good ol' Emacs fully-featured undo
       "s-/" #'comment-or-uncomment-region
+      "s-t" #'doom/switch-to-scratch-buffer
       "M-s-/" #'comment-line
       ;; Ideally the above should work, but this Mac makes opt-/ into a ÷ symbol so...
       "M-s-÷" #'comment-line
