@@ -116,16 +116,18 @@
 ;; Override major modes
 (map! "M-l" #'copy-line
       "M-q" #'other-window
+      ;; Basic commands, not taken care of by `macos' in init.el...
       "s-x" #'kill-region
+      "s-z" #'undo  ;; Good ol' Emacs fully-featured undo
       "s-/" #'comment-or-uncomment-region
-      ;; Ideally this works
-      "M-s-/" 'comment-line
-      ;; but this Mac makes opt-/ into a ÷ symbol so...
-      "M-s-÷" 'comment-line
-      "s-z" 'undo
-      "s-<backspace>" 'sp-kill-whole-line
+      "M-s-/" #'comment-line
+      ;; Ideally the above should work, but this Mac makes opt-/ into a ÷ symbol so...
+      "M-s-÷" #'comment-line
+      "s-<backspace>" #'sp-kill-whole-line
       "C-<backspace>" #'doom/backward-kill-to-bol-and-indent
-      "C-c j" 'counsel-projectile-git-grep
-      "s-p" 'counsel-projectile-git-grep
-      "s-P" 'counsel-projectile-switch-project
+      "C-S-<backspace>" #'fixup-whitespace
+      "C-c j" #'counsel-projectile-git-grep
+      "s-p" #'counsel-projectile-git-grep
+      "s-P" #'counsel-projectile-switch-project
+      "s-F" #'counsel-projectile-find-file
       )
