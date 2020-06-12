@@ -50,4 +50,3 @@
 ;(unpin! t)
 
 (package! crux)
-(package! multiple-cursors)
