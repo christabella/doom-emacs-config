@@ -126,4 +126,6 @@
       "s-<backspace>" 'sp-kill-whole-line
       "C-<backspace>" #'doom/backward-kill-to-bol-and-indent
       "C-c j" 'counsel-projectile-git-grep
+      "s-p" 'counsel-projectile-git-grep
+      "s-P" 'counsel-projectile-switch-project
       )
