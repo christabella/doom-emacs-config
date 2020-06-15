@@ -104,10 +104,38 @@
         ;; Make <return> insert a newline instead of disabling multiple-cursors-mode
         "<return>" #'newline-and-indent))
 
+;; If you use `org' and don't want your org files in the default location below,
+;; change `org-directory'. It must be set before org loads!
+(setq org-directory "~/org/"
+      org-journal-dir "~/Dropbox/org/journal"
+      org-roam-directory "~/Dropbox/org/zettels"
+      org-journal-file-format "%Y-%m-%d.org"
+      org-journal-date-prefix "* "  ;; No title, print heading straightaway.
+      ;; Heading example: `Friday, 12 June 2020'
+      org-journal-date-format "%A, %d %B %Y"
+      org-ellipsis " ▼ "
+      ;; Automatically add journal TODO's to agenda.
+      org-journal-enable-agenda-integration t
+      )
+
+(after! org
+  ;; :mode ("\\.org\\'" . org-mode)
+  :init
+  ;; (map! :leader
+  ;;       :prefix "n"
+  ;;       "c" #'org-capture)
+  (map! :map org-mode-map
+        [M-right] #'org-metaright
+        [M-left] #'org-metaleft
+        "M-n" #'outline-next-visible-heading
+        "M-p" #'outline-previous-visible-heading))
+
 (use-package! org-journal
   :config
   (map!
    "s-j" #'org-journal-new-entry
+   "C-M-S-s-j" #'org-journal-new-entry
+   "C-M-S-s-k" #'org-journal-new-entry  ;; Today, or Kyō (今日)
    "s-J" #'org-journal-open-current-journal-file))
 
 ;; Copy lines
