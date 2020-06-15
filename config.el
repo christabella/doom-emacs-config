@@ -36,11 +36,15 @@
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/"
       org-journal-dir "~/Dropbox/org/journal"
+      org-roam-directory "~/Dropbox/org/zettels"
       org-journal-file-format "%Y-%m-%d.org"
       org-journal-date-prefix "* "  ;; No title, print heading straightaway.
       ;; Heading example: `Friday, 12 June 2020'
       org-journal-date-format "%A, %d %B %Y"
       org-ellipsis " ▼ "
+      ;; Automatically add journal TODO's to agenda.
+      org-journal-enable-agenda-integration t
+
       )
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
