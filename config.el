@@ -128,6 +128,10 @@
    "C-M-S-s-k" #'org-journal-new-entry  ;; Today, or Kyō (今日)
    "s-J" #'org-journal-open-current-journal-file))
 
+(use-package! treemacs
+  :config
+  (map! "C-M-S-s-t" #'treemacs))
+
 ;; Copy lines
 (defun copy-line (arg)
   "Copy lines (as many as prefix argument) in the kill ring.
