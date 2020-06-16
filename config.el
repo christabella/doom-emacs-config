@@ -161,16 +161,16 @@
       "s-x" #'kill-region
       "s-/" #'comment-or-uncomment-region
       "s-t" #'doom/switch-to-scratch-buffer
-      "M-s-/" #'comment-line
+      "M-s-/" #'comment-dwim
       ;; Ideally the above should work, but this Mac makes opt-/ into a ÷ symbol so...
-      "M-s-÷" #'comment-line
+      "M-s-÷" #'comment-dwim
       "s-<backspace>" #'sp-kill-whole-line
       "C-<backspace>" #'doom/backward-kill-to-bol-and-indent
       "C-S-<backspace>" #'fixup-whitespace
       "C-c j" #'+default/search-project ;; TODO deprecate
       "s-p" #'+default/search-project
       "s-P" #'+default/search-other-project
-      "s-F" #'+default/browse-project
+      "s-F" #'projectile-find-file
       "s-r" #'counsel-buffer-or-recentf
       "C-c p d" #'+default/discover-projects  ;; Add ~/repos/* to known projects.
       )
