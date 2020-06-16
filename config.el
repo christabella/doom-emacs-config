@@ -132,6 +132,10 @@
   :config
   (map! "C-M-S-s-t" #'treemacs))
 
+(map! :map flycheck-mode-map
+      "S-s-<up>" #'flycheck-previous-error
+      "S-s-<down>" #'flycheck-next-error)
+
 ;; Copy lines
 (defun copy-line (arg)
   "Copy lines (as many as prefix argument) in the kill ring.
