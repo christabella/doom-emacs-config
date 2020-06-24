@@ -181,6 +181,7 @@
 (map! "M-l" #'copy-line
       "M-q" #'other-window
       ;; Basic commands, not taken care of by `macos' in init.el...
+      "s-z" #'undo
       "s-x" #'kill-region
       "s-/" #'comment-or-uncomment-region
       "s-t" #'doom/switch-to-scratch-buffer
