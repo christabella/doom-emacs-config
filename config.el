@@ -139,6 +139,14 @@
    "C-M-S-s-k" #'org-journal-new-entry  ;; Today, or Kyō (今日)
    "s-J" #'org-journal-open-current-journal-file))
 
+(use-package! org-download
+  :config
+  (map!
+   :map org-mode-map
+   "s-y" #'org-download-yank
+   "s-Y" #'org-download-screenshot
+   ))
+
 (use-package! treemacs
   :config
   (map! "C-M-S-s-t" #'treemacs))
