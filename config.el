@@ -108,15 +108,26 @@
       org-journal-enable-agenda-integration t
       )
 
+;; Disable smartparens-mode entirely in org-mode.
+;; Hack to override M-right with org-metaright later.
+(add-hook 'org-mode-hook #'turn-off-smartparens-mode)
+
 (after! org
   ;; :mode ("\\.org\\'" . org-mode)
-  :init
   ;; (map! :leader
   ;;       :prefix "n"
   ;;       "c" #'org-capture)
-  (map! :map org-mode-map
+  (map! :after (org)
+        :map org-mode-map
+        [C-return] #'org-insert-heading-respect-content
+        [C-down] #'org-move-subtree-down
+        [C-right] #'org-demote-subtree
+        [C-left] #'org-promote-subtree
+        [C-up] #'org-move-subtree-up
         [M-right] #'org-metaright
         [M-left] #'org-metaleft
+        [M-up] #'drag-stuff-up
+        [M-down] #'drag-stuff-down
         "M-n" #'outline-next-visible-heading
         "M-p" #'outline-previous-visible-heading))
 
