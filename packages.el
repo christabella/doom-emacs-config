@@ -50,3 +50,4 @@
 ;(unpin! t)
 
 (package! crux)
+(package! treemacs-icons-dired)
