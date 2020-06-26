@@ -28,9 +28,9 @@
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. I like these themes:
 ;; (setq doom-theme 'doom-laserwave)
-;; (setq doom-theme 'doom-dracula)
+;; (setq doom-theme 'doom-fairy-floss)
+(setq doom-theme 'doom-dracula)
 ;; (setq doom-theme 'doom-moonlight)
-(setq doom-theme 'doom-fairy-floss)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
