@@ -241,3 +241,12 @@
   :after treemacs dired
   :ensure t
   :config (treemacs-icons-dired-mode))
+
+(add-hook! 'python-mode-hook
+  (unless (locate-dominating-file default-directory ".flake8")
+    (format-all-mode -1)))
+
+
+(add-hook! 'js2-mode-hook
+  (unless (locate-dominating-file default-directory ".prettierrc")
+    (format-all-mode -1)))
