@@ -129,13 +129,18 @@
         [M-up] #'drag-stuff-up
         [M-down] #'drag-stuff-down
         "M-n" #'outline-next-visible-heading
-        "M-p" #'outline-previous-visible-heading))
+        "M-N" #'org-forward-heading-same-level
+        "M-p" #'outline-previous-visible-heading
+        "M-P" #'org-backward-heading-same-level
+        ))
 
 (use-package! org-journal
   :config
   (map!
    "s-j" #'org-journal-new-entry
    "C-M-S-s-j" #'org-journal-new-entry
+   "C-c C-b" #'org-journal-open-previous-entry
+   "C-c C-f" #'org-journal-open-next-entry
    "C-M-S-s-k" #'org-journal-new-entry  ;; Today, or Kyō (今日)
    "s-J" #'org-journal-open-current-journal-file))
 
