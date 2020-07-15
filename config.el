@@ -101,6 +101,7 @@
 (setq org-directory "~/org/"
       org-journal-dir "~/Dropbox/org/journal"
       org-roam-directory "~/Dropbox/org/zettels"
+      org-roam-db-location "~/org-roam.db"
       org-journal-file-format "%Y-%m-%d.org"
       org-journal-date-prefix "* "  ;; No title, print heading straightaway.
       ;; Heading example: `Friday, 12 June 2020'
@@ -114,6 +115,7 @@
 ;; Hack to override M-right with org-metaright later.
 (add-hook 'org-mode-hook #'turn-off-smartparens-mode)
 
+;; Ensure code is run after the package (and Doom's defaults) are loaded with after!.
 (after! org
   ;; :mode ("\\.org\\'" . org-mode)
   ;; (map! :leader
@@ -215,7 +217,8 @@
   (map! "C-M-S-s-z" #'org-roam-find-file) ;; Zettels
   (map! "C-M-S-s-b" #'org-roam)  ;; Backlinks buffer
   (map! "C-M-S-s-i" #'org-roam-insert)  ;; Insert link to zettel
-    :config
+  :config
+  ;; https://www.orgroam.com/manual/Template-Walkthrough.html#Template-Walkthrough
   (setq org-roam-capture-templates
         '(("l" "lit" plain (function org-roam--capture-get-point)
            "%?"
