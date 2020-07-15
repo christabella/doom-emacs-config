@@ -99,8 +99,9 @@
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/"
-      org-journal-dir "~/Dropbox/org/journal"
       org-roam-directory "~/Dropbox/org/zettels"
+      ;; Journal dir needs to be inside roam directory for backlinks to work as expected.
+      org-journal-dir "~/Dropbox/org/zettels/personal"  ;; Daily "zettels"
       org-roam-db-location "~/org-roam.db"
       org-journal-file-format "%Y-%m-%d.org"
       org-journal-date-prefix "* "  ;; No title, print heading straightaway.
