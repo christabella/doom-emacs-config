@@ -21,7 +21,44 @@ git clone https://github.com/hlissner/doom-emacs ~/.emacs.d
 ```
 
 ## Evil be gone!
-Comment out the `evil` Doom module in `init.el` (after entering the Vi insert mode), `M-x doom-reload`, and restart Emacs. 
+Comment out the `evil` Doom module in `init.el` (after entering the Vi insert mode), `M-x doom-reload`, and restart Emacs.
 
+## Note-taking
+### Zotero library sync with Dropbox bib file 
+See the Zotero section of https://rgoswami.me/posts/org-note-workflow/#zotero, and use http://zotfile.com/ to rename files to %b better biblatex citation key.
 
+# Most-used keybindings
+`C-a`, `C-e` are all "smart" in Doom, behaving how you would expect w.r.t. indents, comments etc.
+
+A lot (but not all) of the functionality I previously relied on Crux for, are also in the `default` module:
+``` emacs-lisp
+
+   "s-<return>" #'default/newline-below
+   "S-s-<return>" #'default/newline-above
+
+```
+
+`
+# Mac OS X personal customizations
+- Keyboard > Delay until repeat
+- Trackpad > Speed
+- Keyboard > Shortcuts > Input Sources > Disable `C-<Space>` shortcut
+- Use Karabiner > Complex modifications > Add rule (from Internet) > Emacs key bindings (option,control+keys)
+
+# Python
+``` sh
+pyenv install 3.6.10
+pyenv global 3.6.10
+# If you ever want to go back to the system version of Python as the default, you can run this:
+# pyenv global system
+```
+
+ For example, with `pyenv-virtualenv` from the project's root:
+
+``` sh
+pyenv install 3.7.7
+pyenv virtualenv 3.7.7 message-ranking
+pyenv local message-ranking
+pip install -r requirements.txt
+```
 
