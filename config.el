@@ -21,8 +21,11 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
-;; (setq doom-font (font-spec :family "monospace" :size 12 :weight 'semi-light)
-;;       doom-variable-pitch-font (font-spec :family "sans" :size 13))
+(setq doom-font (font-spec :family "Iosevka" :size 14)
+      ;; Use pretty Edward Tufte (EtBembo) serif font for org-mode etc.
+      ;; https://github.com/edwardtufte/et-book/blob/gh-pages/et-book/et-book-roman-line-figures/et-book-roman-line-figures.ttf
+      doom-variable-pitch-font (font-spec :family "ETBembo" :size 16)
+      )
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
@@ -114,6 +117,8 @@
       org-journal-enable-agenda-integration t
       )
 
+(use-package! org
+  :hook (org-mode . variable-pitch-mode))
 ;; Disable smartparens-mode entirely in org-mode.
 ;; Hack to override M-right with org-metaright later.
 (add-hook 'org-mode-hook #'turn-off-smartparens-mode)
