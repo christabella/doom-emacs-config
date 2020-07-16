@@ -101,12 +101,14 @@
 (setq org-directory "~/org/"
       org-roam-directory "~/Dropbox/org/zettels"
       ;; Journal dir needs to be inside roam directory for backlinks to work as expected.
-      org-journal-dir "~/Dropbox/org/zettels/personal"  ;; Daily "zettels"
+      org-journal-dir "~/Dropbox/org/zettels/journal"  ;; Daily "zettels"
       org-roam-db-location "~/org-roam.db"
       org-journal-file-format "%Y-%m-%d.org"
-      org-journal-date-prefix "* "  ;; No title, print heading straightaway.
+      org-journal-date-prefix "#+TITLE: "  ;; Create new journal files with TITLE header.
       ;; Heading example: `Friday, 12 June 2020'
       org-journal-date-format "%A, %d %B %Y"
+      ;; https://develop.spacemacs.org/layers/+emacs/org/README.html#org-journal-support
+      org-journal-time-prefix "* " ;; Entries to start at first level heading
       org-ellipsis " ▼ "
       ;; Automatically add journal TODO's to agenda.
       org-journal-enable-agenda-integration t
@@ -146,7 +148,7 @@
    "C-M-S-s-j" #'org-journal-new-entry
    "C-c C-b" #'org-journal-open-previous-entry
    "C-c C-f" #'org-journal-open-next-entry
-   "C-M-S-s-k" #'org-journal-new-entry  ;; Today, or Kyō (今日)
+   "C-M-S-s-k" #'org-journal-open-current-journal-file  ;; Today, or Kyō (今日)
    "s-J" #'org-journal-open-current-journal-file))
 
 (use-package! org-download
