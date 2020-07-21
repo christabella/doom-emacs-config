@@ -118,7 +118,10 @@
       )
 
 (use-package! org
-  :hook (org-mode . variable-pitch-mode))
+  :hook (org-mode . variable-pitch-mode)
+  ;; Hide backlinks buffer by default.
+  :hook (org-mode . #'org-roam-buffer-toggle-display)
+  )
 ;; Disable smartparens-mode entirely in org-mode.
 ;; Hack to override M-right with org-metaright later.
 (add-hook 'org-mode-hook #'turn-off-smartparens-mode)
