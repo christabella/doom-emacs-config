@@ -71,6 +71,10 @@
         "s-G" #'magit-blame-addition
         "C-x M-g" #'magit-blame-addition))
 
+(use-package! nyan-mode
+  :config
+  (add-hook 'after-init-hook 'nyan-mode))
+
 ;; Crux
 (use-package! crux
   :config

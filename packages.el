@@ -51,3 +51,4 @@
 
 (package! crux)
 (package! treemacs-icons-dired)
+(package! nyan-mode)
