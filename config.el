@@ -75,6 +75,15 @@
   :config
   (add-hook 'after-init-hook 'nyan-mode))
 
+(use-package! emojify
+  :init
+  (add-hook 'after-init-hook 'global-emojify-mode)
+  ;; Disable plain text emojis (no 'ascii' option)
+  (setq emojify-emoji-styles '(github unicode))
+  :config
+  (map! "s-E" #'emojify-insert-emoji)
+  )
+
 ;; Crux
 (use-package! crux
   :config
