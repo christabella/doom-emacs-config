@@ -130,14 +130,13 @@
       org-journal-enable-agenda-integration t
       )
 
-(use-package! org
-  :hook (org-mode . variable-pitch-mode)
-  ;; Hide backlinks buffer by default.
-  :hook (org-mode . #'org-roam-buffer-toggle-display)
-  )
+;; Hide backlinks buffer by default.
+(setq +org-roam-open-buffer-on-find-file nil)
+
 ;; Disable smartparens-mode entirely in org-mode.
 ;; Hack to override M-right with org-metaright later.
 (add-hook 'org-mode-hook #'turn-off-smartparens-mode)
+(add-hook 'org-mode-hook #'variable-pitch-mode)
 
 ;; Ensure code is run after the package (and Doom's defaults) are loaded with after!.
 (after! org
