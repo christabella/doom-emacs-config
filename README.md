@@ -1,7 +1,7 @@
 # Why Doom?
-I just gave Doom a spin, thinking of migrating my vanilla Emacs config to Doom like Jethro did (he [wrote a blogpost about it](https://blog.jethro.dev/posts/migrating_to_doom_emacs/) and the benefits, namely its speed and the fact that "things just work").
+I just gave Doom a spin, thinking of migrating my vanilla Emacs config to Doom [https://github.com/jethrokuan/dots/blob/d9ab45f13bd0b840b9f3f4b1ce2f76b71d06e935/.doom.d/config.el](https://github.com/jethrokuan/dots/blob/d9ab45f13bd0b840b9f3f4b1ce2f76b71d06e935/.doom.d/config.el) (he [wrote a blogpost about it](https://blog.jethro.dev/posts/migrating_to_doom_emacs/) and the benefits, namely its speed and the fact that "things just work").
 
-## Installation
+# Installation
 Following [Doom's "Getting Started" guide](https://github.com/hlissner/doom-emacs/blob/develop/docs/getting_started.org) for Mac OS X using Homebrew:
 
 ``` sh
