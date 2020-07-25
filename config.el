@@ -116,9 +116,10 @@
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/"
       org-roam-directory "~/Dropbox/org/zettels"
+      org-roam-db-location "~/org-roam.db"
       ;; Journal dir needs to be inside roam directory for backlinks to work as expected.
       org-journal-dir "~/Dropbox/org/zettels/journal"  ;; Daily "zettels"
-      org-roam-db-location "~/org-roam.db"
+      org-journal-carryover-items "TODO=\"TODO\"|TODO=\"DOING\""
       org-journal-file-format "%Y-%m-%d.org"
       org-journal-date-prefix "#+TITLE: "  ;; Create new journal files with TITLE header.
       ;; Heading example: `Friday, 12 June 2020'
@@ -157,7 +158,16 @@
         "M-p" #'outline-previous-visible-heading
         "M-P" #'org-backward-heading-same-level
         "C-c u" #'org-cliplink
-        ))
+        )
+  ;; By default: ("TODO" "PROJ" "STRT" "WAIT" "DONE" "KILL" "[ ]" "[-]" "[?]" "[X]" "FOUND" "READING" "CANCELED")
+  (setq org-todo-keywords '((sequence "TODO" "DOING" "DONE"))
+        ;; Setting Colours (faces) for todo states to give clearer view of work
+        org-todo-keyword-faces
+        '(("DOING" . "pink")))
+  ;; org-agenda-skip-scheduled-if-done t
+  ;;        org-agenda-skip-deadline-if-done t
+  ;;        org-todo-keywords-for-agenda '((sequence "TODO" "WAITING" "|" "DONE" "CANCELED"))
+  )
 
 (use-package! org-journal
   :config
