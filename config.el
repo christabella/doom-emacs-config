@@ -141,9 +141,6 @@
 ;; Ensure code is run after the package (and Doom's defaults) are loaded with after!.
 (after! org
   ;; :mode ("\\.org\\'" . org-mode)
-  ;; (map! :leader
-  ;;       :prefix "n"
-  ;;       "c" #'org-capture)
   (map! :after (org)
         :map org-mode-map
         [C-return] #'org-insert-heading-respect-content
@@ -159,6 +156,7 @@
         "M-N" #'org-forward-heading-same-level
         "M-p" #'outline-previous-visible-heading
         "M-P" #'org-backward-heading-same-level
+        "C-c u" #'org-cliplink
         ))
 
 (use-package! org-journal
