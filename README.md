@@ -18,7 +18,12 @@ ln -s /usr/local/opt/emacs-plus/Emacs.app /Applications/Emacs.app
 
 git clone https://github.com/hlissner/doom-emacs ~/.emacs.d
 ~/.emacs.d/bin/doom install
+
+git clone git@github.com:christabella/doom-emacs-config.git ~/.doom.d/
+
 ```
+
+Need [mplayer](https://mplayerosx.ch/) for nyan-mode music.
 
 ## Evil be gone!
 Comment out the `evil` Doom module in `init.el` (after entering the Vi insert mode), `M-x doom-reload`, and restart Emacs.
