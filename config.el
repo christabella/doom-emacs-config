@@ -236,6 +236,7 @@
       "s-P" #'+default/search-other-project
       "s-F" #'projectile-find-file
       "s-r" #'counsel-buffer-or-recentf
+      "s-i" #'counsel-imenu
       "C-c p d" #'+default/discover-projects  ;; Add ~/repos/* to known projects.
       )
 
@@ -282,6 +283,10 @@
   (unless (locate-dominating-file default-directory ".flake8")
     (format-all-mode -1)))
 
+
+(map! :map python-mode-map
+      "M-n" #'python-nav-forward-defun
+      "M-p" #'python-nav-backward-defun)
 
 (add-hook! 'js2-mode-hook
   (unless (locate-dominating-file default-directory ".prettierrc")
