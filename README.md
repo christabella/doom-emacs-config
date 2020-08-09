@@ -32,8 +32,12 @@ Need [mplayer](https://mplayerosx.ch/) for nyan-mode music.
 Comment out the `evil` Doom module in `init.el` (after entering the Vi insert mode), `M-x doom-reload`, and restart Emacs.
 
 ## Note-taking
-### Zotero library sync with Dropbox bib file 
-See the Zotero section of https://rgoswami.me/posts/org-note-workflow/#zotero, and use http://zotfile.com/ to rename files to %b better biblatex citation key.
+### Zotero library sync with Dropbox bib file
+Install [Better Bibtex](https://retorque.re/zotero-better-bibtex/) and under Zotero Preferences (`Cmd-,`), set "Citation key format" to `[auth:lower][year]_[Title:skipwords:select=1,3:lower:condense=_]`
+
+Next, use http://zotfile.com/ to rename files to %b better biblatex citation key.
+
+See the Zotero section of https://rgoswami.me/posts/org-note-workflow/#zotero for more details.
 
 # Most-used keybindings
 `C-a`, `C-e` are all "smart" in Doom, behaving how you would expect w.r.t. indents, comments etc.
