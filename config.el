@@ -231,7 +231,7 @@
       "s-<backspace>" #'sp-kill-whole-line
       "C-<backspace>" #'doom/backward-kill-to-bol-and-indent
       "C-S-<backspace>" #'fixup-whitespace
-      "C-c j" #'+default/search-project ;; TODO deprecate
+      "C-c B" #'browse-url-at-point
       "s-p" #'+default/search-project
       "s-P" #'+default/search-other-project
       "s-F" #'projectile-find-file
