@@ -25,6 +25,8 @@
       ;; Use pretty Edward Tufte (EtBembo) serif font for org-mode etc.
       ;; https://github.com/edwardtufte/et-book/blob/gh-pages/et-book/et-book-roman-line-figures/et-book-roman-line-figures.ttf
       doom-variable-pitch-font (font-spec :family "ETBembo" :size 16)
+      display-line-numbers-type nil
+      confirm-kill-emacs nil
       )
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
