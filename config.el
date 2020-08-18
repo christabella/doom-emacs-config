@@ -139,7 +139,12 @@
 ;; Disable smartparens-mode entirely in org-mode.
 ;; Hack to override M-right with org-metaright later.
 (add-hook 'org-mode-hook #'turn-off-smartparens-mode)
-(add-hook 'org-mode-hook #'variable-pitch-mode)
+
+(use-package! mixed-pitch
+  :config
+  (setq mixed-pitch-set-height t)  ;; Let height be overriden by my doom-font etc.
+  :hook (text-mode . mixed-pitch-mode)
+  )
 
 ;; Ensure code is run after the package (and Doom's defaults) are loaded with after!.
 (after! org
