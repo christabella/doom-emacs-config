@@ -187,12 +187,32 @@
    "s-J" #'org-journal-open-current-journal-file))
 
 (use-package! org-download
-  :config
+  :commands
+  org-download-dnd
+  org-download-dnd-base64
+  :init
   (map!
    :map org-mode-map
    "s-y" #'org-download-yank
-   "s-Y" #'org-download-screenshot
-   ))
+   "s-Y" #'org-download-screenshot)
+  :config
+  (defun +org/org-download-method (link)
+    (let* ((filename
+            (file-name-nondirectory
+             (car (url-path-and-query
+                   (url-generic-parse-url link)))))
+           ;; Create folder name with current buffer name, and place in root dir
+           (dirname (concat "./images/"
+                            (replace-regexp-in-string " " "_"
+                                                      (downcase (file-name-base buffer-file-name)))))
+           (filename-with-timestamp (format "%s%s.%s"
+                                            (file-name-sans-extension filename)
+                                            (format-time-string org-download-timestamp)
+                                            (file-name-extension filename))))
+      (make-directory dirname t)
+      (expand-file-name filename-with-timestamp dirname)))
+  (setq org-download-method '+org/org-download-method
+        org-download-image-org-width 600))
 
 (use-package! treemacs
   :config
