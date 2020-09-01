@@ -218,10 +218,6 @@
   :config
   (map! "C-M-S-s-t" #'treemacs))
 
-(map! :map flycheck-mode-map
-      "S-s-<up>" #'flycheck-previous-error
-      "S-s-<down>" #'flycheck-next-error)
-
 ;; Copy lines
 (defun copy-line (arg)
   "Copy lines (as many as prefix argument) in the kill ring.
@@ -265,7 +261,16 @@
       "s-r" #'counsel-buffer-or-recentf
       "s-i" #'counsel-imenu
       "C-c p d" #'+default/discover-projects  ;; Add ~/repos/* to known projects.
-      )
+      :map python-mode-map
+      "M-n" #'python-nav-forward-defun
+      "M-p" #'python-nav-backward-defun
+      :map smartparens-mode-map
+      "M-]" #'sp-forward-sexp
+      "M-[" #'sp-backward-sexp
+      "C-]" #'sp-rewrap-sexp
+      :map flycheck-mode-map
+      "S-s-<up>" #'flycheck-previous-error
+      "S-s-<down>" #'flycheck-next-error)
 
 (after! projectile
   (setq projectile-project-search-path '("~/repos/"))
@@ -310,10 +315,6 @@
   (unless (locate-dominating-file default-directory ".flake8")
     (format-all-mode -1)))
 
-
-(map! :map python-mode-map
-      "M-n" #'python-nav-forward-defun
-      "M-p" #'python-nav-backward-defun)
 
 (add-hook! 'js2-mode-hook
   (unless (locate-dominating-file default-directory ".prettierrc")
