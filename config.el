@@ -319,6 +319,8 @@
   (unless (locate-dominating-file default-directory ".flake8")
     (format-all-mode -1)))
 
+(after! lsp-python-ms
+  (set-lsp-priority! 'mspyls 1))
 
 (add-hook! 'js2-mode-hook
   (unless (locate-dominating-file default-directory ".prettierrc")
