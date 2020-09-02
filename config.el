@@ -260,7 +260,11 @@
       "s-F" #'projectile-find-file
       "s-r" #'counsel-buffer-or-recentf
       "s-i" #'counsel-imenu
+      "s-T" #'+fold/toggle
       "C-c p d" #'+default/discover-projects  ;; Add ~/repos/* to known projects.
+      :map prog-mode-map
+      "M-?" #'+lookup/documentation
+      "M-r" #'+lookup/references
       :map python-mode-map
       "M-n" #'python-nav-forward-defun
       "M-p" #'python-nav-backward-defun
