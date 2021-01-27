@@ -26,7 +26,10 @@ git clone git@github.com:christabella/doom-emacs-config.git ~/.doom.d
 
 ```
 
-Need [mplayer](https://mplayerosx.ch/) for nyan-mode music.
+A few more things:
+- Install fonts Iosevka and ETBembo.
+- Set up Dropbox sync for `~/org` folder.
+- Need [mplayer](https://mplayerosx.ch/) for nyan-mode music.
 
 ## Evil be gone!
 Comment out the `evil` Doom module in `init.el` (after entering the Vi insert mode), `M-x doom-reload`, and restart Emacs.
@@ -50,12 +53,13 @@ A lot (but not all) of the functionality I previously relied on Crux for, are al
 
 ```
 
-`
 # Mac OS X personal customizations
-- Keyboard > Delay until repeat
-- Trackpad > Speed
-- Keyboard > Shortcuts > Input Sources > Disable `C-<Space>` shortcut
-- Use Karabiner > Complex modifications > Add rule (from Internet) > Emacs key bindings (option,control+keys)
+1. Use Karabiner and copy [this file]() to `~/.config/karabiner/karabiner.json`.
+2. Preferences > Keyboard > Modifier keys > Karabiner VirtualHIDKeyboard > caps as ctrl, fn as null. 
+3. Preferences > Trackpad > Speed, Pointer > Enable drag with three fingers
+4. Copy [this file](https://gist.github.com/christabella/e53ab79d02ca9e169cbc473da32b1470) as `~/Library/KeyBindings/DefaultKeyBinding.dict` to override OS X keybindings with Emacs ones. 
+5. Install iTerm2 with [fairyfloss](https://github.com/aquartier/fairyfloss/blob/master/fairyfloss.itermcolors) profile > import colors.
+6. Install oh-my-zsh with `agnoster` theme and set either Iosevka (has powerline glyphs out of the box) or a [powerline-patched](https://github.com/powerline/fonts) font in iTerm2 preferences. 
 
 # Python
 ``` sh
