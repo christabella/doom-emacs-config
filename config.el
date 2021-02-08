@@ -27,6 +27,7 @@
       doom-variable-pitch-font (font-spec :family "ETBembo" :size 16)
       display-line-numbers-type nil
       confirm-kill-emacs nil
+      +format-on-save-enabled-modes '(python-mode)
       )
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
@@ -315,13 +316,15 @@
   :ensure t
   :config (treemacs-icons-dired-mode))
 
+(after! lsp-python-ms
+  (set-lsp-priority! 'mspyls 1))
+
+;; Only format with black if flake8 linter config exists.
 (add-hook! 'python-mode-hook
   (unless (locate-dominating-file default-directory ".flake8")
     (format-all-mode -1)))
 
-(after! lsp-python-ms
-  (set-lsp-priority! 'mspyls 1))
-
+;; Only format if prettier config exists.
 (add-hook! 'js2-mode-hook
   (unless (locate-dominating-file default-directory ".prettierrc")
     (format-all-mode -1)))
