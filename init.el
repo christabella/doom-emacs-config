@@ -143,7 +143,7 @@
        ;;ocaml             ; an objective camel
        (org  ; organize your plain life in plain text
              ; https://github.com/hlissner/doom-emacs/blob/develop/modules/lang/org/README.org#plugins
-        +journal +hugo +roam +dragndrop +present)
+        +journal +hugo +roam2 +dragndrop +present)
        ;;php               ; perl's insecure younger brother
        ;;plantuml          ; diagrams for confusing people more
        ;;purescript        ; javascript, but functional
