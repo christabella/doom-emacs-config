@@ -168,10 +168,16 @@
         "C-c u" #'org-cliplink
         )
   ;; By default: ("TODO" "PROJ" "STRT" "WAIT" "DONE" "KILL" "[ ]" "[-]" "[?]" "[X]" "FOUND" "READING" "CANCELED")
-  (setq org-todo-keywords '((sequence "TODO" "DOING" "DONE"))
-        ;; Setting Colours (faces) for todo states to give clearer view of work
+  (setq org-todo-keywords
+        ;; https://orgmode.org/manual/Multiple-sets-in-one-file.html
+        '((sequence "TODO" "DOING" "|" "DONE" "WON'T DO"))
+        ;; Setting colours (faces) using M-x list-colors-display
         org-todo-keyword-faces
-        '(("DOING" . "pink")))
+        '(("TODO" . "gold")
+          ("DOING" . "pink")
+          ("DONE" . "aquamarine")
+          ("WON'T DO" . "medium purple"))
+        org-fontify-done-headline t)
   ;; org-agenda-skip-scheduled-if-done t
   ;;        org-agenda-skip-deadline-if-done t
   ;;        org-todo-keywords-for-agenda '((sequence "TODO" "WAITING" "|" "DONE" "CANCELED"))
