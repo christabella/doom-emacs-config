@@ -332,6 +332,9 @@
 (after! lsp-python-ms
   (set-lsp-priority! 'mspyls 1))
 
+(use-package! treemacs
+  :config
+  (map! "C-M-S-s-t" #'treemacs))
 ;; Only format with black if flake8 linter config exists.
 (add-hook! 'python-mode-hook
   (flycheck-select-checker 'python-flake8)
