@@ -272,6 +272,7 @@
       :map prog-mode-map
       "M-?" #'+lookup/documentation
       "M-r" #'+lookup/references
+      "M-/" #'better-jumper-jump-forward  ;; M-, to jump-backward
       :map python-mode-map
       "M-n" #'python-nav-forward-defun
       "M-p" #'python-nav-backward-defun
