@@ -290,33 +290,24 @@
   (add-to-list 'projectile-globally-ignored-directories ".venv"))
 
 (after! org-roam
-  (map! "C-M-S-s-z" #'org-roam-find-file) ;; Zettels
-  (map! "C-M-S-s-b" #'org-roam)  ;; Backlinks buffer
-  (map! "C-M-S-s-i" #'org-roam-insert)  ;; Insert link to zettel
+  (map! "C-c C-z" #'org-roam-node-find) ;; Open zettels drawer or file a new zettel.
+  (map! "C-c C-r" #'org-roam-node-insert)  ;; Reference another zettel at point.
   :config
-  ;; https://www.orgroam.com/manual/Template-Walkthrough.html#Template-Walkthrough
+  ;; https://www.orgroam.com/manual.html#Template-Walkthrough
   (setq org-roam-capture-templates
-        '(("l" "lit" plain (function org-roam--capture-get-point)
-           "%?"
-           :file-name "lit/${slug}"
-           :head "#+setupfile:./hugo_setup.org
-#+hugo_slug: ${slug}
-#+title: ${title}\n"
+        '(("l" "lit" plain "%?"
+           :target (file+head "lit/${slug}.org"
+                              "#+setupfile:./hugo_setup.org\n#+hugo_slug: ${slug}\n#+title: ${title}\n")
            :unnarrowed t)
-          ("c" "concept" plain (function org-roam--capture-get-point)
-           "%?"
-           :file-name "concepts/${slug}"
-           :head "#+setupfile:./hugo_setup.org
-#+hugo_slug: ${slug}
-#+title: ${title}\n"
+        ("c" "concept" plain "%?"
+           :target (file+head "concepts/${slug}.org"
+                              "#+setupfile:./hugo_setup.org\n#+hugo_slug: ${slug}\n#+title: ${title}\n")
            :unnarrowed t)
-          ("p" "personal" plain (function org-roam-capture--get-point)
-           "%?"
-           :file-name "personal/${slug}"
-           :head "#+title: ${title}"
-           :unnarrowed t)
-          ))
-  )
+        ("p" "personal" plain "%?"
+           :target (file+head "personal/${slug}.org"
+                              "#+title: ${title} (%<%Y-%m-%d>)\n")
+           :unnarrowed t))
+  ))
 
 (use-package treemacs-icons-dired
   :after treemacs dired
