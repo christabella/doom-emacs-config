@@ -26,7 +26,15 @@ git clone git@github.com:christabella/doom-emacs-config.git ~/.doom.d
 
 ```
 
+Alternatively, using https://github.com/railwaycat/homebrew-emacsmacport:
+``` sh
+brew tap railwaycat/emacsmacport
+brew install emacs-mac
+ln -s /usr/local/opt/emacs-mac/Emacs.app /Applications/Emacs.app
+```
+
 A few more things:
+- `pip install python-language-server` for lsp-mode.
 - Install fonts Iosevka and ETBembo.
 - Set up Dropbox sync for `~/org` folder.
 - Need [mplayer](https://mplayerosx.ch/) for nyan-mode music.
@@ -59,7 +67,8 @@ A lot (but not all) of the functionality I previously relied on Crux for, are al
 3. Preferences > Trackpad > Speed, Pointer > Enable drag with three fingers
 4. Copy [this file](https://gist.github.com/christabella/e53ab79d02ca9e169cbc473da32b1470) as `~/Library/KeyBindings/DefaultKeyBinding.dict` to override OS X keybindings with Emacs ones. 
 5. Install iTerm2 with [fairyfloss](https://github.com/aquartier/fairyfloss/blob/master/fairyfloss.itermcolors) profile > import colors.
-6. Install oh-my-zsh with `agnoster` theme and set either Iosevka (has powerline glyphs out of the box) or a [powerline-patched](https://github.com/powerline/fonts) font in iTerm2 preferences. 
+6. In iTerm2 preferences, set option keys to Esc+ (to avoid typing integral symbols when doing `M-f/b`). 
+7. Install oh-my-zsh with `agnoster` theme and set either Iosevka (has powerline glyphs out of the box) or a [powerline-patched](https://github.com/powerline/fonts) font in iTerm2 preferences. 
 
 # Python
 ``` sh
