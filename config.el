@@ -253,6 +253,7 @@
       ;; Basic commands, not taken care of by `macos' in init.el...
       "s-z" #'undo
       "s-x" #'kill-region
+      "s-k" #'kill-current-buffer
       "s-/" #'comment-or-uncomment-region
       "s-t" #'doom/switch-to-scratch-buffer
       "M-s-/" #'comment-dwim
