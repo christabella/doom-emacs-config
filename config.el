@@ -316,13 +316,9 @@
   :config (treemacs-icons-dired-mode))
 
 ;; For Python, use flycheck (flake8) for linting and +format (black) for formatting.
-;; For navigation etc., use https://github.com/emacs-lsp/lsp-python-ms
 ;; The `flycheck-flake8rc` variable is ".flake8rc" by default.
 ;; Otherwise, put this in a .dir-locals.el:
 ;;   ((python-mode . ((flycheck-flake8rc . "filename.ext"))))
-
-(after! lsp-python-ms
-  (set-lsp-priority! 'mspyls 1))
 
 (use-package! treemacs
   :config
