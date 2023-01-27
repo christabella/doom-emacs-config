@@ -328,9 +328,13 @@
 (add-hook! 'python-mode-hook
   (flycheck-select-checker 'python-flake8)
   (unless (locate-dominating-file default-directory ".flake8")
-    (format-all-mode -1)))
+    (format-all-mode -1))
+  )
 
 ;; Only format if prettier config exists.
 (add-hook! 'js2-mode-hook
   (unless (locate-dominating-file default-directory ".prettierrc")
     (format-all-mode -1)))
+
+(use-package emacsql-sqlite3)
+(setq org-roam-database-connector 'sqlite3)

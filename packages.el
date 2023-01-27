@@ -53,3 +53,4 @@
 (package! treemacs-icons-dired)
 (package! nyan-mode)
 (package! emojify)
+(package! emacsql-sqlite3)
