@@ -62,9 +62,9 @@ A lot (but not all) of the functionality I previously relied on Crux for, are al
 ```
 
 # Mac OS X personal customizations
-1. Use Karabiner and copy [this file]() to `~/.config/karabiner/karabiner.json`.
-2. Preferences > Keyboard > Modifier keys > Karabiner VirtualHIDKeyboard > caps as ctrl, fn as null. 
-3. Preferences > Trackpad > Speed, Pointer > Enable drag with three fingers
+1. Create `~/Library/LaunchAgents/com.local.KeyRemapping.plist` and remap keys where necessary, e.g. non-US §± to grave accent `~
+2. Preferences > Keyboard > Modifier keys > remap caps as ctrl.
+3. Preferences > Trackpad > Speed, Pointer > Enable drag with three fingers, tap to touch, etc.
 4. Copy [this file](https://gist.github.com/christabella/e53ab79d02ca9e169cbc473da32b1470) as `~/Library/KeyBindings/DefaultKeyBinding.dict` to override OS X keybindings with Emacs ones. 
 5. Install iTerm2 with [fairyfloss](https://github.com/aquartier/fairyfloss/blob/master/fairyfloss.itermcolors) profile > import colors.
 6. In iTerm2 preferences, set option keys to Esc+ (to avoid typing integral symbols when doing `M-f/b`). 
