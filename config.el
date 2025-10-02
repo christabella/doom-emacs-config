@@ -67,13 +67,13 @@
 
 (use-package! magit
   :defer t
+  :bind (("C-x g" . magit-status)
+         ("s-g" . magit-status)
+         ("s-G" . magit-blame-addition)
+         ("C-x M-g" . magit-blame-addition))
   :config
   ;; https://emacs.stackexchange.com/questions/28496/magit-status-always-split-vertically
-  (setq split-width-threshold 200)
-  (map! "C-x g" #'magit-status
-        "s-g" #'magit-status
-        "s-G" #'magit-blame-addition
-        "C-x M-g" #'magit-blame-addition))
+  (setq split-width-threshold 200))
 
 (use-package! nyan-mode
   :config
