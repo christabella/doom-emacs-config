@@ -58,3 +58,5 @@
 (package! nyan-mode)
 (package! emojify)
 (package! emacsql-sqlite3)
+(package! org-reveal)
+(package! ox-reveal)
