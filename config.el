@@ -324,12 +324,6 @@
 (use-package! treemacs
   :config
   (map! "C-M-S-s-t" #'treemacs))
-;; Only format with black if flake8 linter config exists.
-(add-hook! 'python-mode-hook
-  (flycheck-select-checker 'python-flake8)
-  (unless (locate-dominating-file default-directory ".flake8")
-    (format-all-mode -1))
-  )
 
 ;; Only format if prettier config exists.
 (add-hook! 'js2-mode-hook
