@@ -189,8 +189,8 @@
   (map!
    "s-j" #'org-journal-new-entry
    "C-M-S-s-j" #'org-journal-new-entry
-   "C-c C-b" #'org-journal-previous-entry
-   "C-c C-f" #'org-journal-next-entry
+   "C-c C-p" #'org-journal-previous-entry
+   "C-c C-n" #'org-journal-next-entry
    "s-J" #'org-journal-open-current-journal-file
    ))
 
