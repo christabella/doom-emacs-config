@@ -1,69 +1,22 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
-;; Place your private configuration here! Remember, you do not need to run 'doom
-;; sync' after modifying this file!
-
-;; Start in full screen by default
-;; (toggle-frame-maximized)
-;; ... but doing this breaks window resizing completely -_-
-
-;; Some functionality uses this to identify you, e.g. GPG configuration, email
-;; clients, file templates and snippets.
 (setq user-full-name "Christabella Irwanto"
       user-mail-address "christabella.irwanto@relexsolutions.com")
 
-;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
-;; are the three important ones:
-;;
-;; + `doom-font'
-;; + `doom-variable-pitch-font'
-;; + `doom-big-font' -- used for `doom-big-font-mode'; use this for
-;;   presentations or streaming.
-;;
-;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
-;; font string. You generally only need these two:
+;; https://github.com/edwardtufte/et-book
 (setq doom-font (font-spec :family "Iosevka" :size 14)
-      ;; Use pretty Edward Tufte (EtBembo) serif font for org-mode etc.
-      ;; https://github.com/edwardtufte/et-book/blob/gh-pages/et-book/et-book-roman-line-figures/et-book-roman-line-figures.ttf
       doom-variable-pitch-font (font-spec :family "ETBembo" :size 16 :style "RomanLF")
       display-line-numbers-type nil
       confirm-kill-emacs nil
-      +format-on-save-enabled-modes '(python-mode)
-      )
+      +format-on-save-enabled-modes '(python-mode))
 
-;; There are two ways to load a theme. Both assume the theme is installed and
-;; available. You can either set `doom-theme' or manually load a theme with the
-;; `load-theme' function. I like these themes:
-;; (setq doom-theme 'doom-laserwave)
+;; Alternatives: doom-laserwave, doom-dracula, doom-moonlight
 (setq doom-theme 'doom-fairy-floss)
-;; (setq doom-theme 'doom-dracula)
-;; (setq doom-theme 'doom-moonlight)
-
-;; This determines the style of line numbers in effect. If set to `nil', line
-;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type nil)
 
 ;; Autofill comments
 (setq comment-auto-fill-only-comments t)
 (add-hook 'prog-mode-hook #'auto-fill-mode)
 
-
-;; Here are some additional functions/macros that could help you configure Doom:
-;;
-;; - `load!' for loading external *.el files relative to this one
-;; - `use-package!' for configuring packages
-;; - `after!' for running code after a package has loaded
-;; - `add-load-path!' for adding directories to the `load-path', relative to
-;;   this file. Emacs searches the `load-path' when you load packages with
-;;   `require' or `use-package'.
-;; - `map!' for binding new keys
-;;
-;; To get information about any of these functions/macros, move the cursor over
-;; the highlighted symbol at press 'K' (non-evil users must press 'C-c c k').
-;; This will open documentation for it, including demos of how they are used.
-;;
-;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
-;; they are implemented.
 
 (use-package! magit
   :defer t
@@ -85,8 +38,7 @@
   ;; Disable plain text emojis (no 'ascii' option)
   (setq emojify-emoji-styles '(github unicode))
   :config
-  (map! "s-E" #'emojify-insert-emoji)
-  )
+  (map! "s-E" #'emojify-insert-emoji))
 
 ;; Crux
 (use-package! crux
@@ -98,9 +50,7 @@
    "s-D" #'crux-duplicate-and-comment-current-line-or-region
    "C-c o" #'crux-open-with
    "C-c D" #'crux-delete-file-and-buffer
-   "C-c R" #'crux-rename-file-and-buffer
-   ))
-;; "C-<backspace>" #'crux-kill-line-backwards))
+   "C-c R" #'crux-rename-file-and-buffer))
 
 
 (use-package! multiple-cursors
@@ -116,8 +66,6 @@
         ;; Make <return> insert a newline instead of disabling multiple-cursors-mode
         "<return>" #'newline-and-indent))
 
-;; If you use `org' and don't want your org files in the default location below,
-;; change `org-directory'. It must be set before org loads!
 (setq org-roam-directory "~/roam"
       org-roam-db-location "~/roam/org-roam.db"
       ;; Journal dir needs to be inside roam directory for backlinks to work as expected.
@@ -142,14 +90,11 @@
 (add-hook 'org-mode-hook #'turn-off-smartparens-mode)
 
 (use-package! mixed-pitch
-  :config
-  (setq mixed-pitch-set-height t)  ;; Let height be overriden by my doom-font etc.
   :hook (text-mode . mixed-pitch-mode)
-  )
+  :config
+  (setq mixed-pitch-set-height t))  ;; Let height be overridden by doom-font
 
-;; Ensure code is run after the package (and Doom's defaults) are loaded with after!.
 (after! org
-  ;; :mode ("\\.org\\'" . org-mode)
   (map! :after (org)
         :map org-mode-map
         [C-return] #'org-insert-heading-respect-content
@@ -177,11 +122,7 @@
           ("DOING" . "pink")
           ("DONE" . "aquamarine")
           ("WON'T DO" . "medium purple"))
-        org-fontify-done-headline t)
-  ;; org-agenda-skip-scheduled-if-done t
-  ;;        org-agenda-skip-deadline-if-done t
-  ;;        org-todo-keywords-for-agenda '((sequence "TODO" "WAITING" "|" "DONE" "CANCELED"))
-  )
+        org-fontify-done-headline t))
 
 (use-package! org-journal
   :config
@@ -190,8 +131,7 @@
    "C-M-S-s-j" #'org-journal-new-entry
    "C-c C-p" #'org-journal-previous-entry
    "C-c C-n" #'org-journal-next-entry
-   "s-J" #'org-journal-open-current-journal-file
-   ))
+   "s-J" #'org-journal-open-current-journal-file))
 
 (use-package! org-download
   :commands
@@ -302,34 +242,23 @@
         '(("n" "note" plain "%?"
            :target (file+head "wiki/${slug}.org"
                               "#+title: ${title}\n#+filetags: :work:\n")
-           :unnarrowed t)))
-  (setq org-roam-dailies-capture-templates
+           :unnarrowed t))
+        org-roam-dailies-capture-templates
         '(("d" "work daily" entry "* %<%H:%M> %?"
            :target (file+head "%<%Y-%m-%d>.org"
                               "#+title: %<%Y-%m-%d>\n#+filetags: :daily:work:\n")))))
 
-(use-package treemacs-icons-dired
+(use-package! treemacs-icons-dired
   :after treemacs dired
-  :ensure t
   :config (treemacs-icons-dired-mode))
 
-;; For Python, use flycheck (flake8) for linting and +format (black) for formatting.
-;; The `flycheck-flake8rc` variable is ".flake8rc" by default.
-;; Otherwise, put this in a .dir-locals.el:
-;;   ((python-mode . ((flycheck-flake8rc . "filename.ext"))))
-
-(use-package! treemacs
-  :config
-  (map! "C-M-S-s-t" #'treemacs))
+;; For Python: flycheck (flake8) for linting, +format (black) for formatting.
+;; Override per-project: .dir-locals.el → ((python-mode . ((flycheck-flake8rc . "filename.ext"))))
 
 ;; Only format if prettier config exists.
 (add-hook! 'js2-mode-hook
   (unless (locate-dominating-file default-directory ".prettierrc")
     (format-all-mode -1)))
 
-(use-package emacsql-sqlite3)
+(use-package! emacsql-sqlite3)
 (setq org-roam-database-connector 'sqlite3)
-
-(after! org
-  (load-library "ox-reveal")
-  (setq org-reveal-root "file:///path/to/reveal.js-master"))
