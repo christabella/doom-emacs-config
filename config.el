@@ -111,6 +111,12 @@
         "M-P" #'org-backward-heading-same-level
         "C-c u" #'org-cliplink
         )
+  ;; From roam/wiki/key_codebases.org
+  (setq org-link-abbrev-alist
+        '(("plan-mcp"          . "https://gitlab.relexsolutions.com/system-management/plan-sre/plan-mcp/-/blob/main/%s")
+          ("planning-cloud"    . "https://gitlab.relexsolutions.com/DevHEL/planning-cloud/-/blob/master/%s")
+          ("relexgpt-api"      . "https://gitlab.relexsolutions.com/labs-engineering/relex-gpt/relexgpt-api/-/blob/main/%s")
+          ("relexgpt-frontend" . "https://gitlab.relexsolutions.com/labs-engineering/relex-gpt/relexgpt-frontend/-/blob/master/%s")))
   ;; By default: ("TODO" "PROJ" "STRT" "WAIT" "DONE" "KILL" "[ ]" "[-]" "[?]" "[X]" "FOUND" "READING" "CANCELED")
   (setq org-todo-keywords
         ;; https://orgmode.org/manual/Multiple-sets-in-one-file.html
