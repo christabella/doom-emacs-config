@@ -7,8 +7,7 @@
 (setq doom-font (font-spec :family "Iosevka" :size 14)
       doom-variable-pitch-font (font-spec :family "ETBembo" :size 16 :style "RomanLF")
       display-line-numbers-type nil
-      confirm-kill-emacs nil
-      +format-on-save-enabled-modes '(python-mode))
+      confirm-kill-emacs nil)
 
 ;; Alternatives: doom-laserwave, doom-dracula, doom-moonlight
 (setq doom-theme 'doom-fairy-floss)
@@ -252,13 +251,8 @@
   :after treemacs dired
   :config (treemacs-icons-dired-mode))
 
-;; For Python: flycheck (flake8) for linting, +format (black) for formatting.
-;; Override per-project: .dir-locals.el → ((python-mode . ((flycheck-flake8rc . "filename.ext"))))
-
-;; Only format if prettier config exists.
-(add-hook! 'js2-mode-hook
-  (unless (locate-dominating-file default-directory ".prettierrc")
-    (format-all-mode -1)))
-
 (use-package! emacsql-sqlite3)
 (setq org-roam-database-connector 'sqlite3)
+
+(unless (server-running-p)
+  (server-start))
