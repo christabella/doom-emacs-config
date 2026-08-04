@@ -92,7 +92,6 @@
        ;;gist              ; interacting with github gists
        lookup              ; navigate your code and its documentation
        lsp
-       macos             ; MacOS-specific commands
        magit             ; a git porcelain for Emacs
        ;;make              ; run make tasks from Emacs
        ;;pass              ; password manager for nerds
@@ -143,7 +142,7 @@
        ;;ocaml             ; an objective camel
        (org  ; organize your plain life in plain text
              ; https://github.com/hlissner/doom-emacs/blob/develop/modules/lang/org/README.org#plugins
-        +journal +hugo +roam2 +dragndrop +present)
+        +journal +hugo +roam +dragndrop +present)
        ;;php               ; perl's insecure younger brother
        ;;plantuml          ; diagrams for confusing people more
        ;;purescript        ; javascript, but functional
@@ -175,6 +174,9 @@
        ;;irc               ; how neckbeards socialize
        ;;(rss +org)        ; emacs as an RSS reader
        ;;twitter           ; twitter client https://twitter.com/vnought
+
+       :os
+       macos             ; MacOS-specific commands
 
        :config
        ;;literate

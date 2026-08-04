@@ -88,3 +88,13 @@ pyenv local message-ranking
 pip install -r requirements.txt
 ```
 
+# Day-to-day note taking
+| Situation     | Action    | Result                         | Notes                      |
+|---------------|-----------|--------------------------------|----------------------------|
+| Quick thought | `C-c w`   | Timestamped bullet in `daily/` | Messy is fine. Daily inbox |
+| Wiki note     | `C-c C-z` | Create/update `wiki/slug.org`  | Create/find lasting note.  |
+| Link note     | `C-c C-r` | Insert org ref link            |                            |
+| Journal       | `s-j`     | org-journal entry (not roam)   |                            |
+
+
+Tell LLM to "process my dailies" or "ingest this thread," to turn the dumps into proper linked notes and update the index/log.

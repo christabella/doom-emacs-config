@@ -127,11 +127,11 @@
 (use-package! org-journal
   :config
   (map!
+   "C-c j" #'org-journal-new-entry
    "s-j" #'org-journal-new-entry
-   "C-M-S-s-j" #'org-journal-new-entry
+   "s-J" #'org-journal-open-current-journal-file
    "C-c C-p" #'org-journal-previous-entry
-   "C-c C-n" #'org-journal-next-entry
-   "s-J" #'org-journal-open-current-journal-file))
+   "C-c C-n" #'org-journal-next-entry))
 
 (use-package! org-download
   :commands
@@ -233,9 +233,9 @@
 (after! org-roam
   (org-roam-db-autosync-mode)
   (setq org-roam-dailies-directory "daily/")   ;; -> ~/roam/daily (work capture inbox)
-  (map! "C-c C-z" #'org-roam-node-find          ;; find / create a node
-        "C-c C-r" #'org-roam-node-insert        ;; ref link to another node
-        "C-c w"   #'org-roam-dailies-capture-today) ;; work brain-dump (s-j stays personal)
+  (map! "C-c z" #'org-roam-node-find          ;; Zettel: find/create a node
+        "C-c r" #'org-roam-node-insert        ;; Ref: link to another node
+        "C-c d"   #'org-roam-dailies-capture-today) ;; work brain-dump (s-j stays personal)
   ;; Simple start: one "note" template -> wiki/, tagged :work: by default.
   ;; Add :general:/:person:/:project:/:moc: by editing #+filetags in the node itself.
   (setq org-roam-capture-templates
